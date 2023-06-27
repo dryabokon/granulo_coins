@@ -11,7 +11,7 @@ dct_config_static_image={
 # ----------------------------------------------------------------------------------------------------------------------
 dct_config_video_offline={
     'use_camera':False,
-    'filename_in':'./images/video.mp4',
+    'filename_in':'./images/ex_08/video.mp4',
     'homography_3x3':homography_3x3,
     'pix_per_mm':4.33
 }

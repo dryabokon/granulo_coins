@@ -115,6 +115,9 @@ if __name__ == '__main__':
         config = configurations.dct_config_video_offline
     elif args.mode =='live':
         config = configurations.dct_config_video_live
+    elif args.mode == 'calibration':
+        calibrate_cam()
+        exit(1)
     else:
         parser.print_help()
         exit(1)
