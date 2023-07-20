@@ -19,11 +19,18 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: '3.9'
-        repository: https://github.com/dryabokon/tools
 
     - name: Install dependencies
       run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+
+    #   - it clones the repo into the given `path`
+    #   - it checks out the branch defined at `ref`
+    - name: Clone repository
+      uses: actions/checkout@v3
+      with:
+        repository: dryabokon/tools
+        path: tools/
 
     - name: Run tests
       run: main.py
