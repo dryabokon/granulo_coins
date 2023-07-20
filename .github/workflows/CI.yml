@@ -33,4 +33,4 @@ jobs:
         path: tools/
 
     - name: Run tests
-      run: main.py
+      run: main
