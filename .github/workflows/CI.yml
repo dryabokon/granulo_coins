@@ -18,9 +18,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.x'  # Replace 'x' with your desired Python version.
+        python-version: '3.9'
+        repository: https://github.com/dryabokon/tools
 
     - name: Install dependencies
       run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+
     - name: Run tests
-      run: pytest
+      run: main.py
