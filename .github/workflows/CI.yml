@@ -1,41 +1,15 @@
-name: CI
-
-on:
-  push:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+name: Secret Printer
 
 jobs:
-  build:
+  print_secret:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out the code
-      uses: actions/checkout@v3
-
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.9'
-
-#    - name: Install dependencies
-#      run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-#    - name: Clone repository
-#      uses: actions/checkout@v3
-#      with:
-#        repository: dryabokon/tools
-#        path: tools/
-
-    - name: Run tests
+    - name: python print secret
       env:
-        SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
-
+        MY_VAL: ${{ secrets.SECRET_LOGIN }}
       run: |
         import os
-        for q in (os.getenv("SECRET_LOGIN")):
+        for q in (os.getenv("MY_VAL")):
           print(q)
-          data.write(q)
       shell: python
