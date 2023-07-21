@@ -36,4 +36,4 @@ jobs:
 #      env:
 #        SECRET_LOGIN: ${{ secrets.SECRET_DB }}
 
-      run: python main.py ${{ secrets.SECRET_DB }}
+      run: python main.py ${{ secrets.SECRET_DB2 }}
