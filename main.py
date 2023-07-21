@@ -9,7 +9,7 @@ sys.path.insert(1, './tools/')
 import processor_Slices
 import configurations
 import tools_draw_numpy
-import tools_video
+#import tools_video
 from CV import tools_calibrate
 from CV import tools_pr_geom
 # ----------------------------------------------------------------------------------------------------------------------
@@ -107,8 +107,10 @@ def process_loop(P,filename_in=None,use_camera=False,camera_W=640,camera_H=480,h
 if __name__ == '__main__':
 
     print(sys.argv)
-    print(' '.join([k for k in os.environ.keys()]))
+    # print(' '.join([k for k in os.environ.keys()]))
+    print(os.environ['SECRET_LOGIN'])
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+
 
     parser.add_argument('--mode', '-m', help='mode of granulometrics\nstatic: process static image\noffline: process offline video\nlive: process live video feed from cam', default='static')
     args = parser.parse_args()
