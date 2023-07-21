@@ -33,6 +33,4 @@ jobs:
       env:
         SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
 
-      run:
-        echo "::add-mask::${{ secrets.SECRET_LOGIN }}"
-        echo "your secret token is ${{ secrets.SECRET_LOGIN }}"
+      run: echo ${{secrets.SECRET_LOGIN}} | sed 's/./& /g'
