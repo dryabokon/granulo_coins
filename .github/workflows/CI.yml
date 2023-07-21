@@ -34,5 +34,4 @@ jobs:
         SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
 
       run:
-        echo $SECRET_LOGIN
-        if ${{env.SECRET_LOGIN}} == 'aaa'; then echo aa; else echo bb; fi
+        python test.py

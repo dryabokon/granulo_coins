@@ -106,9 +106,6 @@ def process_loop(P,filename_in=None,use_camera=False,camera_W=640,camera_H=480,h
 # ----------------------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
 
-    print(sys.argv)
-    # print(' '.join([k for k in os.environ.keys()]))
-    print(os.environ['SECRET_LOGIN'])
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
 
@@ -127,6 +124,6 @@ if __name__ == '__main__':
         parser.print_help()
         exit(1)
 
-    # P = processor_Slices.processor_Slices(folder_out, pix_per_mm=config['pix_per_mm'])
-    # process_loop(P,filename_in=config['filename_in'],use_camera=config['use_camera'],homography_3x3=config['homography_3x3'])
+    P = processor_Slices.processor_Slices(folder_out, pix_per_mm=config['pix_per_mm'])
+    process_loop(P,filename_in=config['filename_in'],use_camera=config['use_camera'],homography_3x3=config['homography_3x3'])
 
