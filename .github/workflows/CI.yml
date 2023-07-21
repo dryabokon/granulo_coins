@@ -15,9 +15,9 @@ jobs:
         SECRET_DB: ${{ secrets.SECRET_DB }}
       run: |
         import os
-        for q in (os.getenv("SECRET_LOGIN")):
-          print(q)
-        
-        for q in (os.getenv("SECRET_DB")):
-          print(q)
+        print('SECRET_LOGIN')
+        print([q for q in (os.getenv("SECRET_LOGIN"))])
+        print('SECRET_DB')
+        print([q for q in (os.getenv("SECRET_DB"))])
+
       shell: python
