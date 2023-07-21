@@ -33,4 +33,7 @@ jobs:
         path: tools/
 
     - name: Run tests
-      run: python main.py
+      env:
+        SECRET_LOGIN: ${{ secrets.SECRET_DB }}
+
+      run: python main.py "SECRET_LOGIN"

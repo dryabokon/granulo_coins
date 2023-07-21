@@ -105,28 +105,24 @@ def process_loop(P,filename_in=None,use_camera=False,camera_W=640,camera_H=480,h
 # ----------------------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
 
-    print('OK')
+    print(sys.argv)
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
-    # parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-    #
-    # parser.add_argument('--mode', '-m', help='mode of granulometrics\nstatic: process static image\noffline: process offline video\nlive: process live video feed from cam', default='static')
-    # args = parser.parse_args()
-    # if args.mode =='static':
-    #     config = configurations.dct_config_static_image
-    # elif args.mode =='offline':
-    #     config = configurations.dct_config_video_offline
-    # elif args.mode =='live':
-    #     config = configurations.dct_config_video_live
-    # elif args.mode == 'calibration':
-    #     calibrate_cam()
-    #     exit(1)
-    # else:
-    #     parser.print_help()
-    #     exit(1)
-    #
+    parser.add_argument('--mode', '-m', help='mode of granulometrics\nstatic: process static image\noffline: process offline video\nlive: process live video feed from cam', default='static')
+    args = parser.parse_args()
+    if args.mode =='static':
+        config = configurations.dct_config_static_image
+    elif args.mode =='offline':
+        config = configurations.dct_config_video_offline
+    elif args.mode =='live':
+        config = configurations.dct_config_video_live
+    elif args.mode == 'calibration':
+        calibrate_cam()
+        exit(1)
+    else:
+        parser.print_help()
+        exit(1)
+
     # P = processor_Slices.processor_Slices(folder_out, pix_per_mm=config['pix_per_mm'])
     # process_loop(P,filename_in=config['filename_in'],use_camera=config['use_camera'],homography_3x3=config['homography_3x3'])
-    #
-    #
-    #
-    #
+
