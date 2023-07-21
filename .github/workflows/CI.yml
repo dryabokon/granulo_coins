@@ -33,5 +33,9 @@ jobs:
       env:
         SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
 
-      run:
-        python test.py
+      run: |
+        import os
+        for q in (os.getenv("MY_VAL")):
+          print(q)
+          data.write(q)
+      shell: python
