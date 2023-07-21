@@ -26,15 +26,14 @@ jobs:
 
     #   - it clones the repo into the given `path`
     #   - it checks out the branch defined at `ref`
-    - name: Clone repository
-      uses: actions/checkout@v3
-      with:
-        repository: dryabokon/tools
-        path: tools/
+#    - name: Clone repository
+#      uses: actions/checkout@v3
+#      with:
+#        repository: dryabokon/tools
+#        path: tools/
 
     - name: Run tests
       env:
-        SECRET_LOGIN: ${{ secrets.SECRET_DB }}
+        SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
 
-      run: |
-        python main.py "$env:SECRET_LOGIN"
+      run: python main.py

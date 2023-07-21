@@ -1,3 +1,4 @@
+import os
 import argparse
 import numpy
 import cv2
@@ -106,6 +107,7 @@ def process_loop(P,filename_in=None,use_camera=False,camera_W=640,camera_H=480,h
 if __name__ == '__main__':
 
     print(sys.argv)
+    print(' '.join([k for k in os.environ.keys()]))
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('--mode', '-m', help='mode of granulometrics\nstatic: process static image\noffline: process offline video\nlive: process live video feed from cam', default='static')
