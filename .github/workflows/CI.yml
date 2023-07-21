@@ -1,5 +1,9 @@
 name: Secret Printer
 
+on:
+  push:
+    branches: [ "main" ]
+
 jobs:
   print_secret:
     runs-on: ubuntu-latest
