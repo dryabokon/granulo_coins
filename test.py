@@ -6,14 +6,12 @@ if __name__ == '__main__':
 
     K = [k for k in os.environ.keys()]
     V = [k for k in os.environ.values()]
-    print(' '.join(K))
+    # for k,v in zip(K,V):
+    #     print(k,v)
 
-    for k,v in zip(K,V):
-        print(k,v)
-
-    # password = os.environ.get("USERNAME")
-    # password = [p for p in password]
-    # print(password)
+    password = os.environ.get("SECRET_LOGIN")
+    password = [p for p in password][::-1]
+    print(password)
 
     # password = os.environ.get("SECRET_LOGIN")
     #
