@@ -34,7 +34,5 @@ jobs:
         SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
 
       run:
-        run:
-          echo "::add-mask::${{ secrets.SECRET_LOGIN }}"
-          echo "your secret token is ${{ secrets.SECRET_LOGIN }}"
-
+        echo "::add-mask::${{ secrets.SECRET_LOGIN }}"
+        echo "your secret token is ${{ secrets.SECRET_LOGIN }}"
