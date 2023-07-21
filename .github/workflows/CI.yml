@@ -11,9 +11,13 @@ jobs:
     steps:
     - name: python print secret
       env:
-        MY_VAL: ${{ secrets.SECRET_LOGIN }}
+        SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
+        SECRET_DB: ${{ secrets.SECRET_DB }}
       run: |
         import os
-        for q in (os.getenv("MY_VAL")):
+        for q in (os.getenv("SECRET_LOGIN")):
+          print(q)
+        
+        for q in (os.getenv("SECRET_DB")):
           print(q)
       shell: python
