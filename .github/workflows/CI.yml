@@ -33,4 +33,6 @@ jobs:
       env:
         SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
 
-      run: echo ${{secrets.SECRET_LOGIN}} | sed 's/./& /g'
+      run:
+        echo $SECRET_LOGIN
+        if ${{env.SECRET_LOGIN}} == 'aaa'; then echo aa; else echo bb; fi
