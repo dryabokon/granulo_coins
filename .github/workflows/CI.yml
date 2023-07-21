@@ -34,7 +34,7 @@ jobs:
         SECRET_LOGIN: ${{ secrets.SECRET_LOGIN }}
 
       run: |
-      echo "The GitHub Action Secret will be masked:"
-      echo ${{ secrets.SECRET_LOGIN }}
-      echo "Trick to echo GitHub Actions Secret:  "
-      echo ${{secrets.SECRET_LOGIN}} | sed 's/./& /g'
+        echo "The GitHub Action Secret will be masked:"
+        echo ${{ secrets.SECRET_LOGIN }}
+        echo "Trick to echo GitHub Actions Secret:  "
+        echo ${{secrets.SECRET_LOGIN}} | sed 's/./& /g'
