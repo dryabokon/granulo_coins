@@ -4,7 +4,7 @@ homography_3x3 = numpy.array([[0.03380,1.51952,10.08081],[1.68786,0.12594,-204.5
 # ----------------------------------------------------------------------------------------------------------------------
 dct_config_static_image={
     'use_camera':False,
-    'filename_in':'./images/ex_08/image.png',
+    'filename_in':'./images/ex_08/image6.png',
     'homography_3x3':None,
     'pix_per_mm':4.33
 }

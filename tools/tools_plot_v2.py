@@ -1104,7 +1104,7 @@ class Plotter(object):
 
         plt.bar(x_pos, values, color=colors)
 
-        plt.xticks(x_pos, labels)
+        #plt.xticks(x_pos, labels)
         if yticks is not None:
             plt.yticks(yticks)
         else:

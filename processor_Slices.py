@@ -33,7 +33,7 @@ class processor_Slices(object):
         self.pix_per_mm = pix_per_mm
         self.roi_pad = 20
         self.tol_track_delta = 10
-        self.diametr_min = 60
+        self.diametr_min = 30
         self.diametr_max = 130
         self.dict_granules_mm = {16.3: 'XS',18: 'S', 20.8: 'M',23: 'L',26: 'XL' }
         self.colors_size_mm = tools_draw_numpy.get_colors(2 * len(self.dict_granules_mm.keys()), colormap='gist_rainbow')[:len(self.dict_granules_mm.keys())][::-1]
@@ -69,10 +69,12 @@ class processor_Slices(object):
         return
 # ----------------------------------------------------------------------------------------------------------------------
     def binarize(self, gray):
-        #binarized = cv2.threshold(cv2.cvtColor(cv2.pyrMeanShiftFiltering(255-img, 21, 51), cv2.COLOR_BGR2GRAY), 0, 255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-        #binarized = cv2.threshold(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-
+        #binarized = cv2.threshold(cv2.cvtColor(cv2.pyrMeanShiftFiltering(255-gray, 21, 51), cv2.COLOR_BGR2GRAY), 0, 255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+        #binarized  = cv2.threshold(255-gray, 0, 255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
         binarized = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+        # blockSize = 27
+        # maxValue = 255
+        # binarized = cv2.adaptiveThreshold(gray, maxValue, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, blockSize,0)
         return binarized
 # ----------------------------------------------------------------------------------------------------------------------
     def append_stats(self,tags_sizes):
@@ -258,7 +260,7 @@ class processor_Slices(object):
         self.image_dashboard = tools_draw_numpy.draw_rect_fast(self.image_dashboard, 750 - shift, 410 + shift,750 + W - shift, 410 + H + shift, (0, 0, 0), w=1)
         return
 # ----------------------------------------------------------------------------------------------------------------------
-    def process_file_contours(self, filename_in):
+    def process_file_contours(self, filename_in,do_debug=True):
 
         image = cv2.imread(filename_in) if isinstance(filename_in,str) else filename_in
 
@@ -298,6 +300,12 @@ class processor_Slices(object):
 
 
         self.compose_dashboard(image_camera,image_histo_historic,image_histo_current)
+
+        if do_debug:
+            cv2.imwrite(self.folder_out + '1gray.png', gray)
+            cv2.imwrite(self.folder_out + '2image_bin.png', image_bin)
+            cv2.imwrite(self.folder_out + '3image_segments.png', image_segments)
+
 
         self.T.tic('next step')
         self.OF.next_step()
